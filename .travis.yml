@@ -5,7 +5,7 @@ python:
 
 before_install:
     - sudo apt-get update
-    - sudo apt-get install curl apt-transport-https lsb-release gpg unzip
+    - sudo apt-get install curl apt-transport-https lsb-release unzip
     - sudo apt-get update
 install:
     - echo "Installing terraform"
