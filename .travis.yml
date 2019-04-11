@@ -15,7 +15,8 @@ install:
     - terraform --version
 before_script:
     - terraform init
-    - terraform validate
+    - pip install -r requirements.txt
 script:
     - ./zip.sh
+    - terraform validate
     - python app/test.py
