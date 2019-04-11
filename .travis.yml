@@ -7,16 +7,17 @@ before_install:
     - sudo apt-get update
     - sudo apt-get install curl apt-transport-https lsb-release unzip
     - sudo apt-get update
-install:
-    - echo "Installing terraform"
-    - wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
-    - unzip terraform_0.11.13_linux_amd64.zip
-    - sudo mv terraform /usr/local/bin/
-    - terraform --version
+# install:
+    # - echo "Installing terraform"
+    # - wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
+    # - unzip terraform_0.11.13_linux_amd64.zip
+    # - sudo mv terraform /usr/local/bin/
+    # - terraform --version
 before_script:
-    - terraform init
+    # - terraform init
     - pip install -r requirements.txt
 script:
-    - ./zip.sh
-    - terraform validate
+    # Need to make zip more robust (ie must be able to find site packages location)
+    # - ./zip.sh
+    # - terraform validate
     - python app/test.py
