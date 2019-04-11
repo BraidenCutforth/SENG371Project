@@ -6,6 +6,7 @@
 
 - [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+- [Python 3.7](https://www.python.org/downloads/) Install this however you would like.
 
 It is also assumed that you have logged into the AWS CLI and that you have the appropriate permissions to deploy all necessary infrastructure defined in the Terraform template.
 
@@ -20,7 +21,12 @@ The deployment is done entirely using Terraform! Feel free to browse the terrafo
 >Note: You will want to change the variable for the bucket prefix as defined in the template if deploying on your own. This is because all S3 bucket names must be unique across all of AWS.
 
 ```bash
-./zip.sh # mac/linux shell
+# Only create a virtual env once
+virtualenv venv -p `which python3` # Use the latest python 3.7
+
+source venv/bin/activate # Activate virtual env
+pip install -r requirements.txt # Install all the dependencies
+./zip.sh # Package the application
 tf plan # Do this if you want to make a plan to confirm infrastructure. Otherwise just use apply
 tf apply
 
